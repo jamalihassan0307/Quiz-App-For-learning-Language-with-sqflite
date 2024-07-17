@@ -1,4 +1,4 @@
-import 'package:aris_language_learning/models/user_model.dart';
+import 'package:quiz_app/models/user_model.dart';
 import 'package:get/get.dart';
 
 class UserController extends GetxController {

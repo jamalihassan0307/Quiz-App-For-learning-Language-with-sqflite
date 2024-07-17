@@ -1,4 +1,4 @@
-package com.example.aris_language_learning
+package com.new.package.quiz_app
 
 import io.flutter.embedding.android.FlutterActivity
 

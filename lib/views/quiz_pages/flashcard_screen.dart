@@ -1,8 +1,8 @@
 import 'package:appinio_swiper/appinio_swiper.dart';
-import 'package:aris_language_learning/models/bengali_questions_model.dart';
-import 'package:aris_language_learning/views/quiz_pages/quiz_screen.dart';
-import 'package:aris_language_learning/widgets/flash_card_widget.dart';
-import 'package:aris_language_learning/widgets/linear_progress_indicator_widget.dart';
+import 'package:quiz_app/models/bengali_questions_model.dart';
+import 'package:quiz_app/views/quiz_pages/quiz_screen.dart';
+import 'package:quiz_app/widgets/flash_card_widget.dart';
+import 'package:quiz_app/widgets/linear_progress_indicator_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';

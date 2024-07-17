@@ -1,4 +1,4 @@
-import 'package:aris_language_learning/widgets/dotted_lines.dart';
+import 'package:quiz_app/widgets/dotted_lines.dart';
 import 'package:flutter/material.dart';
 
 class ResultsCard extends StatelessWidget {

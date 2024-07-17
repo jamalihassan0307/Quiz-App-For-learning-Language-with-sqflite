@@ -1,5 +1,5 @@
-import 'package:aris_language_learning/themes/color.dart';
-import 'package:aris_language_learning/views/login_signup/signup.dart';
+import 'package:quiz_app/themes/color.dart';
+import 'package:quiz_app/views/login_signup/signup.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 

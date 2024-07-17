@@ -1,5 +1,4 @@
-
-import 'package:aris_language_learning/models/bengali_questions_model.dart';
+import 'package:quiz_app/models/bengali_questions_model.dart';
 
 final urduQuestionsList = [
   Question(
@@ -132,7 +131,8 @@ final urduQuestionsList = [
       const Option(text: "آپ اچھے ہیں", isCorrect: false),
     ],
     id: 11,
-    correctAnswer: const Option(text: "میں آپ سے پیار کرتا ہوں", isCorrect: true),
+    correctAnswer:
+        const Option(text: "میں آپ سے پیار کرتا ہوں", isCorrect: true),
   ),
   Question(
     text: "دوست کا اردو میں کیا مطلب ہے؟",

@@ -1,6 +1,4 @@
-
-
-import 'package:aris_language_learning/models/bengali_questions_model.dart';
+import 'package:quiz_app/models/bengali_questions_model.dart';
 
 final punjabiQuestionsListInUrdu = [
   Question(

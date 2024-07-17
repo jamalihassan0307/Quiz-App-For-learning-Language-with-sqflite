@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:aris_language_learning/models/bengali_questions_model.dart';
-import 'package:aris_language_learning/views/quiz_pages/results_screen.dart';
+import 'package:quiz_app/models/bengali_questions_model.dart';
+import 'package:quiz_app/views/quiz_pages/results_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

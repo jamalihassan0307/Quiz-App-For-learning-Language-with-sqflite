@@ -1,10 +1,10 @@
-import 'package:aris_language_learning/models/bengali_questions_model.dart';
-import 'package:aris_language_learning/models/english_questions_model.dart';
-import 'package:aris_language_learning/models/german_questions_model.dart';
-import 'package:aris_language_learning/models/hindi_questions_model.dart';
-import 'package:aris_language_learning/models/punjabi_questions_model.dart';
-import 'package:aris_language_learning/models/sindhi_questions_model.dart';
-import 'package:aris_language_learning/models/urdu_questions_model.dart';
+import 'package:quiz_app/models/bengali_questions_model.dart';
+import 'package:quiz_app/models/english_questions_model.dart';
+import 'package:quiz_app/models/german_questions_model.dart';
+import 'package:quiz_app/models/hindi_questions_model.dart';
+import 'package:quiz_app/models/punjabi_questions_model.dart';
+import 'package:quiz_app/models/sindhi_questions_model.dart';
+import 'package:quiz_app/models/urdu_questions_model.dart';
 import 'package:flutter/cupertino.dart';
 
 const Color cardColor = Color(0xFF4993FA);
@@ -76,4 +76,3 @@ final List<FlutterTopics> flutterTopicsList = [
     topicQuestions: sindhiQuestionsListInPakistanUrdu,
   ),
 ];
-

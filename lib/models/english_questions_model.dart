@@ -1,6 +1,4 @@
-
-
-import 'package:aris_language_learning/models/bengali_questions_model.dart';
+import 'package:quiz_app/models/bengali_questions_model.dart';
 
 final englishQuestionsList = [
   Question(
@@ -114,7 +112,8 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "quick", isCorrect: true),
   ),
   Question(
-    text: "What is the correct form of 'to be' in the sentence 'He ___ my friend'?",
+    text:
+        "What is the correct form of 'to be' in the sentence 'He ___ my friend'?",
     options: [
       const Option(text: "are", isCorrect: false),
       const Option(text: "am", isCorrect: false),

@@ -1,6 +1,6 @@
-import 'package:aris_language_learning/themes/color.dart';
-import 'package:aris_language_learning/views/login_signup/login.dart';
-import 'package:aris_language_learning/views/login_signup/signup.dart';
+import 'package:quiz_app/themes/color.dart';
+import 'package:quiz_app/views/login_signup/login.dart';
+import 'package:quiz_app/views/login_signup/signup.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -67,8 +67,12 @@ class WelcomePage extends StatelessWidget {
                               height: 44,
                               child: ElevatedButton(
                                 onPressed: () {
-                                   Navigator.push(context,MaterialPageRoute(builder: (context) => const SignupPage(),));
-                                  
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SignupPage(),
+                                      ));
                                 },
                                 style: TextButton.styleFrom(
                                   textStyle: const TextStyle(

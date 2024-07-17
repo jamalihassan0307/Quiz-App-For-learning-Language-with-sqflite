@@ -1,4 +1,4 @@
-name: aris_language_learning
+name: quiz_app
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -40,6 +40,7 @@ dependencies:
   translator:
   font_awesome_flutter: 
   cached_network_image: 
+  change_app_package_name: 
   get: 
 
 dev_dependencies:

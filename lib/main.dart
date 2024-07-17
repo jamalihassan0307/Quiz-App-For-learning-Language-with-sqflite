@@ -1,5 +1,5 @@
-import 'package:aris_language_learning/views/home_screen.dart';
-import 'package:aris_language_learning/views/login_signup/splash.dart';
+import 'package:quiz_app/views/home_screen.dart';
+import 'package:quiz_app/views/login_signup/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';

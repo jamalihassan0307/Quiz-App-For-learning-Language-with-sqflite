@@ -1,4 +1,4 @@
-import 'package:aris_language_learning/themes/color.dart';
+import 'package:quiz_app/themes/color.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatefulWidget {

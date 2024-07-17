@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:aris_language_learning/models/bengali_questions_model.dart';
-import 'package:aris_language_learning/views/quiz_pages/flashcard_screen.dart';
+import 'package:quiz_app/models/bengali_questions_model.dart';
+import 'package:quiz_app/views/quiz_pages/flashcard_screen.dart';
 import 'package:flutter/material.dart';
 
 // Example data model for keywords

@@ -1,4 +1,4 @@
-import 'package:aris_language_learning/widgets/results_card.dart';
+import 'package:quiz_app/widgets/results_card.dart';
 import 'package:flutter/material.dart';
 
 class ResultsScreen extends StatelessWidget {

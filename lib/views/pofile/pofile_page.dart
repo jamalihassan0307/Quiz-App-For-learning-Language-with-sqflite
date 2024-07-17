@@ -1,5 +1,5 @@
-import 'package:aris_language_learning/controller/profile_controller.dart';
-import 'package:aris_language_learning/themes/color.dart';
+import 'package:quiz_app/controller/profile_controller.dart';
+import 'package:quiz_app/themes/color.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

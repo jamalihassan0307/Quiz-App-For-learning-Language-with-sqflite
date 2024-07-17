@@ -1,8 +1,8 @@
-import 'package:aris_language_learning/models/flutter_topics_model.dart';
-import 'package:aris_language_learning/views/pofile/pofile_page.dart';
-import 'package:aris_language_learning/views/quiz_pages/flashcard_screen.dart';
-import 'package:aris_language_learning/views/quiz_pages/level.dart';
-import 'package:aris_language_learning/widgets/drawer_header.dart';
+import 'package:quiz_app/models/flutter_topics_model.dart';
+import 'package:quiz_app/views/pofile/pofile_page.dart';
+import 'package:quiz_app/views/quiz_pages/flashcard_screen.dart';
+import 'package:quiz_app/views/quiz_pages/level.dart';
+import 'package:quiz_app/widgets/drawer_header.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:translator/translator.dart';
