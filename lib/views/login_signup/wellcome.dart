@@ -1,7 +1,6 @@
 import 'package:quiz_app/themes/color.dart';
 import 'package:quiz_app/views/login_signup/login.dart';
 import 'package:quiz_app/views/login_signup/signup.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {

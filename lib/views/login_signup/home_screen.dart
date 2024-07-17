@@ -1,17 +1,16 @@
 import 'package:quiz_app/models/flutter_topics_model.dart';
-import 'package:quiz_app/views/quiz_pages/flashcard_screen.dart';
 import 'package:quiz_app/views/quiz_pages/level.dart';
 import 'package:quiz_app/widgets/drawer_header.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:translator/translator.dart';
+// import 'package:translator/translator.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final translator = GoogleTranslator();
+    // final translator = GoogleTranslator();
     const Color bgColor = Color(0xFF4993FA);
     const Color bgColor3 = Color(0xFF5170FD);
     return Scaffold(
