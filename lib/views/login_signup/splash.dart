@@ -1,4 +1,5 @@
-import 'package:quiz_app/controller/profile_controller.dart';
+import 'package:quiz_app/controller/login_controller.dart';
+import 'package:quiz_app/controller/user_controller.dart';
 import 'package:quiz_app/themes/color.dart';
 import 'package:quiz_app/views/login_signup/wellcome.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,8 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     Get.put(UserController());
+    Get.put(LoginController());
+
     Future.delayed(const Duration(seconds: 4), () {
       Navigator.push(
           context,

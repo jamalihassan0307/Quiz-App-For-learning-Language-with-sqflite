@@ -1,7 +1,8 @@
-import 'package:quiz_app/controller/profile_controller.dart';
+import 'package:quiz_app/controller/user_controller.dart';
 import 'package:quiz_app/themes/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quiz_app/themes/staticdata.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -321,7 +322,8 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 CircleAvatar(
                   radius: 36,
-                  backgroundImage: AssetImage("${obj.user.profilePic}"),
+                  backgroundImage:
+                      AssetImage("${StaticData.userModel!.profilePic}"),
                 ),
               ],
             ),

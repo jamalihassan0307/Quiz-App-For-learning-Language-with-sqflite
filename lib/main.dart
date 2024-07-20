@@ -1,8 +1,8 @@
-import 'package:quiz_app/views/home_screen.dart';
 // import 'package:quiz_app/views/login_signup/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:quiz_app/views/login_signup/splash.dart';
 
 void main() {
   runApp(
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const SplashPage(),
     );
   }
 }

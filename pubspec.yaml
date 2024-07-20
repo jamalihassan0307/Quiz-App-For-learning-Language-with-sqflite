@@ -42,6 +42,9 @@ dependencies:
   cached_network_image: 
   change_app_package_name: 
   get: 
+  sqflite: 
+  image_picker: 
+  path: 
 
 dev_dependencies:
   flutter_test:

@@ -1,69 +1,56 @@
-class UserDetail {
-  UserDetail({
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+
+class UserModel {
+  String id;
+  String firstname;
+  String lastname;
+  String email;
+  String mobile;
+  String? profilePic;
+  UserModel({
     required this.id,
     required this.firstname,
     required this.lastname,
     required this.email,
     required this.mobile,
-    required this.about,
-    required this.role,
-    required this.isMobileNumberVerified,
-    required this.isEmailVerified,
-    required this.isBlocked,
-    required this.createdAt,
-    required this.updatedAt,
-    required this.v,
-    required this.profilePic,
+    this.profilePic,
   });
 
-  final String? id;
-  final String? firstname;
-  final String? lastname;
-  final String? email;
-  final String? mobile;
-  final String? about;
-  final String? role;
-  final bool? isMobileNumberVerified;
-  final bool? isEmailVerified;
-  final bool? isBlocked;
-  final DateTime? createdAt;
-  final DateTime? updatedAt;
-  final int? v;
-  final String? profilePic;
-
-  factory UserDetail.fromJson(Map<String, dynamic> json) {
-    return UserDetail(
-      id: json["_id"],
-      firstname: json["firstname"],
-      lastname: json["lastname"],
-      email: json["email"],
-      mobile: json["mobile"],
-      about: json["about"],
-      role: json["role"],
-      isMobileNumberVerified: json["isMobileNumberVerified"],
-      isEmailVerified: json["isEmailVerified"],
-      isBlocked: json["isBlocked"],
-      createdAt: DateTime.tryParse(json["createdAt"] ?? ""),
-      updatedAt: DateTime.tryParse(json["updatedAt"] ?? ""),
-      v: json["__v"],
-      profilePic: json["profilePic"],
+  UserModel copyWith({
+    String? id,
+    String? firstname,
+    String? lastname,
+    String? email,
+    String? mobile,
+    String? profilePic,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      firstname: firstname ?? this.firstname,
+      lastname: lastname ?? this.lastname,
+      email: email ?? this.email,
+      mobile: mobile ?? this.mobile,
+      profilePic: profilePic ?? this.profilePic,
     );
   }
 
-  Map<String, dynamic> toJson() => {
-        "_id": id,
-        "firstname": firstname,
-        "lastname": lastname,
-        "email": email,
-        "mobile": mobile,
-        "about": about,
-        "role": role,
-        "isMobileNumberVerified": isMobileNumberVerified,
-        "isEmailVerified": isEmailVerified,
-        "isBlocked": isBlocked,
-        "createdAt": createdAt?.toIso8601String(),
-        "updatedAt": updatedAt?.toIso8601String(),
-        "__v": v,
-        "profilePic": profilePic,
-      };
+  String toMap() {
+    return "'$id','$firstname','$lastname','$email','$mobile','$profilePic'";
+  }
+
+  factory UserModel.fromMap(Map<String, dynamic> map) {
+    return UserModel(
+      id: map['id'],
+      firstname: map['firstname'],
+      lastname: map['lastname'],
+      email: map['email'],
+      mobile: map['mobile'],
+      profilePic: map['profilePic'],
+    );
+  }
+
+  @override
+  String toString() {
+    return 'UserModel(id: $id, firstname: $firstname, lastname: $lastname, email: $email, mobile: $mobile, profilePic: $profilePic)';
+  }
 }
