@@ -1,10 +1,13 @@
 // ignore_for_file: deprecated_member_use, avoid_print
 
+import 'package:quiz_app/models/result_model.dart';
+import 'package:quiz_app/themes/staticdata.dart';
 import 'package:quiz_app/views/home_screen.dart';
 import 'package:quiz_app/widgets/results_card.dart';
 import 'package:flutter/material.dart';
+import 'package:uuid/uuid.dart';
 
-class ResultsScreen extends StatelessWidget {
+class ResultsScreen extends StatefulWidget {
   const ResultsScreen(
       {super.key,
       required this.score,
@@ -15,13 +18,32 @@ class ResultsScreen extends StatelessWidget {
   final String whichTopic;
 
   @override
+  State<ResultsScreen> createState() => _ResultsScreenState();
+}
+
+class _ResultsScreenState extends State<ResultsScreen> {
+  @override
   Widget build(BuildContext context) {
     const Color bgColor3 = Color(0xFF5170FD);
-    print(score);
-    print(totalQuestions);
-    final double percentageScore = (score / totalQuestions) * 100;
+    print(widget.score);
+    print(widget.totalQuestions);
+    final double percentageScore = (widget.score / widget.totalQuestions) * 100;
     final int roundedPercentageScore = percentageScore.round();
     const Color cardColor = Color(0xFF4993FA);
+    String id = const Uuid().v4();
+
+    ResultModel model = ResultModel(
+        id: id,
+        result: roundedPercentageScore >= 75 ? "Win" : "Lose",
+        awaid: roundedPercentageScore >= 75
+            ? "You have Earned this Trophy"
+            : "I know You can do better!!",
+        persetage: "$roundedPercentageScore %",
+        language: widget.whichTopic.toUpperCase(),
+        image: roundedPercentageScore >= 75
+            ? "assets/bouncy-cup.gif"
+            : "assets/sad.png");
+    StaticData.addResultData(model, context);
     return WillPopScope(
       onWillPop: () {
         Navigator.pushAndRemoveUntil(
@@ -84,7 +106,7 @@ class ResultsScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  whichTopic.toUpperCase(),
+                  widget.whichTopic.toUpperCase(),
                   style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                         fontSize: 15,
                         color: Colors.white,

@@ -49,19 +49,6 @@ class UserController extends GetxController {
 
   Future<void> updateprofile(BuildContext context) async {
     if (hpickedFile != null) {
-      // Uint8List imageBytes = await hpickedFile!.readAsBytes();
-      // String base64Image = base64Encode(imageBytes);
-
-      // String query = "UPDATE UserModel SET ";
-      // query += "firstname = '${firstNameController.text}',";
-      // query += "lastname =' ${lastNameController.text}',";
-      // query += "email = '${emailController.text}',";
-      // query += "password = '${passwordController.text}',";
-      // query += "mobile = '${phoneNumberController.text}',";
-      // query += "image = '${hpickedFile!.path}'";
-
-      // query += " WHERE id = '${StaticData.userModel!.id}'";
-
       var map = {
         'firstname': firstNameController.text,
         'lastname': lastNameController.text,
@@ -95,15 +82,6 @@ class UserController extends GetxController {
             ));
       });
     } else {
-      // String query = "UPDATE UserModel SET ";
-      // query += "firstname = '${firstNameController.text}',";
-      // query += "lastname =' ${lastNameController.text}',";
-      // query += "email = '${emailController.text}',";
-      // query += "password = '${passwordController.text}',";
-      // query += "mobile = '${phoneNumberController.text}',";
-
-      // query += " WHERE id = '${StaticData.userModel!.id}'";
-
       try {
         var map = {
           'firstname': firstNameController.text,

@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously, avoid_print
+// ignore_for_file: use_build_context_synchronously, avoid_print, non_constant_identifier_names
 
 import 'dart:io';
 
@@ -7,12 +7,16 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:quiz_app/DB/database_querys.dart';
+import 'package:quiz_app/models/result_model.dart';
 import 'package:quiz_app/models/user_model.dart';
 import 'package:quiz_app/views/login_signup/wellcome.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uuid/uuid.dart';
 
 class StaticData {
   static UserModel? userModel;
+  static List<ResultModel>? result_model_list;
+
   static Future<String> assetToF(String assetPath) async {
     String directory = (await getTemporaryDirectory()).path;
     List<String> pathParts = assetPath.split('/');
@@ -91,6 +95,37 @@ class StaticData {
         fontSize: 17,
         timeInSecForIosWeb: 1,
         toastLength: Toast.LENGTH_LONG,
+      );
+    }
+  }
+
+  static void addResultData(ResultModel model, context) async {
+    try {
+      var query = "INSERT INTO ResultModel VALUES (${model.toMap()})";
+      SQLQuery.postdata(query).then((value) {
+        SQLQuery.getdata("Select * from ResultModel").then((value) {
+          print("modelelelelelele${value.toString()}");
+        });
+        Fluttertoast.showToast(
+          msg: "Add Successful",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.blue,
+          textColor: Colors.white,
+          fontSize: 16.0,
+        );
+      });
+    } catch (e) {
+      print("eror${e.toString()}");
+      Fluttertoast.showToast(
+        msg: "Check internet connecti...or try another email${e.toString()}",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0,
       );
     }
   }
