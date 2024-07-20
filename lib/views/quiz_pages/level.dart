@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, avoid_print
 
 import 'package:quiz_app/models/bengali_questions_model.dart';
 import 'package:quiz_app/views/quiz_pages/flashcard_screen.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:appinio_swiper/appinio_swiper.dart';
 import 'package:quiz_app/models/bengali_questions_model.dart';
 import 'package:quiz_app/views/quiz_pages/quiz_screen.dart';

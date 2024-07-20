@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:quiz_app/models/flutter_topics_model.dart';
 import 'package:quiz_app/views/quiz_pages/level.dart';
 import 'package:quiz_app/widgets/drawer_header.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use, avoid_print
+
 import 'dart:async';
 
 import 'package:quiz_app/models/bengali_questions_model.dart';

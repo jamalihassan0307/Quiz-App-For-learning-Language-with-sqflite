@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, avoid_print
 
 import 'dart:io';
 
@@ -42,7 +42,8 @@ class StaticData {
       (route) => false,
     );
   }
-    static Future<void> updatepatientprofile() async {
+
+  static Future<void> updatepatientprofile() async {
     try {
       var query = "SELECT * FROM UserModel where id='${userModel!.id}'";
       await SQLQuery.getdata(query).then((value) async {
@@ -51,11 +52,8 @@ class StaticData {
         print("get data");
         try {
           var model1 = UserModel.fromMap(value[0]);
-          
-        
-     
+
           userModel = model1;
-          
         } catch (e) {
           return;
         }
@@ -73,5 +71,4 @@ class StaticData {
       );
     }
   }
-
 }

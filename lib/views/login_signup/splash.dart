@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, avoid_print
 
 import 'package:quiz_app/DB/database_querys.dart';
 import 'package:quiz_app/controller/login_controller.dart';

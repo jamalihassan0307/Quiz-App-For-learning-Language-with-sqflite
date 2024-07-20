@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 // import 'package:doctor_appointment_app/SQL/Sql_query.dart';
 import 'package:sqflite/sqflite.dart';

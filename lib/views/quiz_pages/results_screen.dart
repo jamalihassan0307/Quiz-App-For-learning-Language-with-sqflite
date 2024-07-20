@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use, avoid_print
+
 import 'package:quiz_app/widgets/results_card.dart';
 import 'package:flutter/material.dart';
 
