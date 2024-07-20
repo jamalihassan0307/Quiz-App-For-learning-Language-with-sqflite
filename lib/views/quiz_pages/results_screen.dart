@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use, avoid_print
 
+import 'package:quiz_app/views/home_screen.dart';
 import 'package:quiz_app/widgets/results_card.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,10 @@ class ResultsScreen extends StatelessWidget {
     const Color cardColor = Color(0xFF4993FA);
     return WillPopScope(
       onWillPop: () {
-        Navigator.popUntil(context, (route) => route.isFirst);
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const HomePage()),
+            (route) => true);
         return Future.value(false);
       },
       child: Scaffold(
@@ -34,7 +38,10 @@ class ResultsScreen extends StatelessWidget {
           actions: [
             IconButton(
               onPressed: () {
-                Navigator.popUntil(context, (route) => route.isFirst);
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),
+                    (route) => true);
               },
               icon: const Icon(
                 Icons.close,
@@ -100,7 +107,10 @@ class ResultsScreen extends StatelessWidget {
                   elevation: MaterialStateProperty.all(4),
                 ),
                 onPressed: () {
-                  Navigator.popUntil(context, (route) => route.isFirst);
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                      (route) => true);
                 },
                 child: const Text(
                   "Take another test",

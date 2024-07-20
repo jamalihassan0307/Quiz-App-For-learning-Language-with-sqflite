@@ -237,6 +237,7 @@ Drawer navigationDrawer(context) {
           listTileTerms(context),
           listTileShare(context),
           listTileLogOut(context),
+          listTileDelete(context),
         ],
       ),
     ),
@@ -330,6 +331,22 @@ ListTile listTileLogOut(context) {
     leading: const Icon(Icons.login_outlined, size: 20, color: Colors.black),
     title: Text(
       "LogOut",
+      style: TextStyle(
+          fontSize: setSize(context, 18), fontWeight: FontWeight.w400),
+    ),
+    onTap: () async {
+      Navigator.pop(context);
+      StaticData.cleardata(context);
+    },
+  );
+}
+
+ListTile listTileDelete(context) {
+  return ListTile(
+    contentPadding: const EdgeInsets.only(top: 15, left: 20),
+    leading: const Icon(Icons.delete, size: 20, color: Colors.red),
+    title: Text(
+      "Delete Account",
       style: TextStyle(
           fontSize: setSize(context, 18), fontWeight: FontWeight.w400),
     ),

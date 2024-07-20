@@ -71,4 +71,27 @@ class StaticData {
       );
     }
   }
+
+  static Future<void> deleteAccount() async {
+    try {
+      var query = "DELETE FROM UserModel  where id='${userModel!.id}'";
+      await SQLQuery.getdata(query).then((value) async {
+        print("snaaaaaap    $value");
+
+        print("get data");
+        userModel = null;
+      });
+    } catch (e) {
+      print("errrrrrrror    $e");
+      Fluttertoast.showToast(
+        msg: "${e.toString()} !",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        gravity: ToastGravity.BOTTOM,
+        fontSize: 17,
+        timeInSecForIosWeb: 1,
+        toastLength: Toast.LENGTH_LONG,
+      );
+    }
+  }
 }

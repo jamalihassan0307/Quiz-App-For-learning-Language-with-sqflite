@@ -97,7 +97,6 @@ class _QuizScreenState extends State<QuizScreen> {
 
     return WillPopScope(
       onWillPop: () {
-        Navigator.popUntil(context, (route) => route.isFirst);
         return Future.value(false);
       },
       child: Scaffold(
