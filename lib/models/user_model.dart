@@ -6,12 +6,14 @@ class UserModel {
   String lastname;
   String email;
   String mobile;
+  String password;
   String? profilePic;
   UserModel({
     required this.id,
     required this.firstname,
     required this.lastname,
     required this.email,
+    required this.password,
     required this.mobile,
     this.profilePic,
   });
@@ -22,12 +24,14 @@ class UserModel {
     String? lastname,
     String? email,
     String? mobile,
+    String? password,
     String? profilePic,
   }) {
     return UserModel(
       id: id ?? this.id,
       firstname: firstname ?? this.firstname,
       lastname: lastname ?? this.lastname,
+      password: password ?? this.password,
       email: email ?? this.email,
       mobile: mobile ?? this.mobile,
       profilePic: profilePic ?? this.profilePic,
@@ -35,7 +39,7 @@ class UserModel {
   }
 
   String toMap() {
-    return "'$id','$firstname','$lastname','$email','$mobile','$profilePic'";
+    return "'$id','$firstname','$lastname','$email','$password','$mobile','$profilePic'";
   }
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
@@ -45,12 +49,13 @@ class UserModel {
       lastname: map['lastname'],
       email: map['email'],
       mobile: map['mobile'],
+      password: map['password'],
       profilePic: map['profilePic'],
     );
   }
 
   @override
   String toString() {
-    return 'UserModel(id: $id, firstname: $firstname, lastname: $lastname, email: $email, mobile: $mobile, profilePic: $profilePic)';
+    return 'UserModel(id: $id, firstname: $firstname, lastname: $lastname, email: $email, mobile: $mobile,password: $password, profilePic: $profilePic)';
   }
 }

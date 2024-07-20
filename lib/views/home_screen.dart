@@ -1,4 +1,5 @@
 import 'package:quiz_app/models/flutter_topics_model.dart';
+import 'package:quiz_app/themes/staticdata.dart';
 import 'package:quiz_app/views/pofile/pofile_page.dart';
 import 'package:quiz_app/views/quiz_pages/level.dart';
 import 'package:quiz_app/widgets/drawer_header.dart';
@@ -6,11 +7,18 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // import 'package:translator/translator.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
+    String name =
+        '${StaticData.userModel!.firstname} ${StaticData.userModel!.lastname}';
     // final translator = GoogleTranslator();
     const Color bgColor = Color(0xFF4993FA);
     const Color bgColor3 = Color(0xFF5170FD);
@@ -21,9 +29,9 @@ class HomePage extends StatelessWidget {
           child: RichText(
             text: TextSpan(
               children: [
-                for (var i = 0; i < "Learn New Skills!!!".length; i++) ...[
+                for (var i = 0; i < name.length; i++) ...[
                   TextSpan(
-                    text: "Learn New Skills!!!"[i],
+                    text: name[i],
                     style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                           fontSize: 18 + i.toDouble(),
                           color: Colors.white,

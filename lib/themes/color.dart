@@ -6,7 +6,7 @@ class ThemeColor {
   static const Color primaryDark = Color(0xff5b4dc3);
   static const Color accent = Color(0xff6a5ae0);
   static const Color lightPrimary = Color(0xff9087e5);
-  static const Color lighterPrimary = Color(0xffefeefc);
+  static const Color lighterPrimary = Color.fromARGB(255, 219, 217, 240);
   static const Color white = Color(0xffffffff);
   static const Color black = Color(0xff000000);
   static const Color grey = Color(0xff5F5F5F);

@@ -45,6 +45,12 @@ dependencies:
   sqflite: 
   image_picker: 
   path: 
+  intl: 
+  uuid: 
+  shared_preferences:   
+  http: 
+  path_provider: 
+  fluttertoast: 
 
 dev_dependencies:
   flutter_test:

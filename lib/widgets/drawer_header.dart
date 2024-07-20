@@ -1,20 +1,21 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quiz_app/themes/staticdata.dart';
 
 drawerHeader(context) {
   return Container(
     margin: const EdgeInsets.only(bottom: 20),
     padding: const EdgeInsets.only(bottom: 20, top: 10),
     width: double.infinity,
-    color: Color(0xFF5170FD),
+    color: const Color(0xFF5170FD),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [userImage(), userName(context), userEmail(context)],
     ),
   );
 }
-
-
 
 userEmail(context) {
   return Container(
@@ -31,19 +32,20 @@ userEmail(context) {
 }
 
 userName(context) {
-  return  Container(
-          margin: const EdgeInsets.only(bottom: 5, top: 10),
-          alignment: Alignment.center,
-          child: Text(
-            "User",
-            style: TextStyle(
-                fontSize: setSize(context, 20),
-                fontWeight: FontWeight.bold,
-                color: Colors.white),
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
-          ));
+  return Container(
+      margin: const EdgeInsets.only(bottom: 5, top: 10),
+      alignment: Alignment.center,
+      child: Text(
+        '${StaticData.userModel!.firstname} ${StaticData.userModel!.lastname}',
+        style: TextStyle(
+            fontSize: setSize(context, 20),
+            fontWeight: FontWeight.bold,
+            color: Colors.white),
+        overflow: TextOverflow.ellipsis,
+        textAlign: TextAlign.center,
+      ));
 }
+
 const String appLogo = "assets/logo.png";
 userImage() {
   return Container(
@@ -52,12 +54,11 @@ userImage() {
           color: Colors.white,
           border: Border.all(color: Colors.black, width: 1.7)),
       margin: const EdgeInsets.only(top: 40, bottom: 10),
-      child:  Image.asset(
-              appLogo,
-              height: 130,
-              width: 150,
-            )
-         );
+      child: Image.file(
+        File(StaticData.userModel!.profilePic!),
+        height: 130,
+        width: 150,
+      ));
 }
 
 class ResponsiveWidget extends StatelessWidget {

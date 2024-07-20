@@ -2,9 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:quiz_app/DB/sqflite.dart';
 import 'package:quiz_app/views/login_signup/splash.dart';
 
-void main() {
+Future<void> main() async {
   runApp(
     const MyApp(),
   );
@@ -14,6 +15,7 @@ void main() {
       DeviceOrientation.portraitDown,
     ],
   );
+  await SQLService.openDB();
 }
 
 class MyApp extends StatelessWidget {

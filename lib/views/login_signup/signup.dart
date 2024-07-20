@@ -23,19 +23,6 @@ class _SignupPageState extends State<SignupPage> {
     width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.arrow_back,
-                color: ThemeColor.black,
-              )),
-          backgroundColor: Colors.transparent,
-          centerTitle: false,
-          elevation: 0,
-        ),
         backgroundColor: ThemeColor.lighterPrimary,
         body: GetBuilder<LoginController>(builder: (obj) {
           return SingleChildScrollView(
@@ -45,13 +32,7 @@ class _SignupPageState extends State<SignupPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Create an Account 👋",
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: ThemeColor.black,
-                        fontWeight: FontWeight.bold),
-                  ),
+                  SizedBox(height: height * 0.02),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Stack(
@@ -65,7 +46,7 @@ class _SignupPageState extends State<SignupPage> {
                               },
                               child: const Icon(
                                 Icons.arrow_back_ios_new,
-                                color: Colors.white,
+                                color: Colors.black,
                                 size: 25,
                               ),
                             ),
@@ -78,12 +59,11 @@ class _SignupPageState extends State<SignupPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 const Text(
-                                  "Profile",
+                                  "Create an Account 👋",
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                    fontSize: 25,
-                                  ),
+                                      fontSize: 24,
+                                      color: ThemeColor.black,
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 const SizedBox(
                                   height: 20,
@@ -109,9 +89,10 @@ class _SignupPageState extends State<SignupPage> {
                                                           fit: BoxFit.fill)),
                                                   // radius: 75,
                                                 )
-                                              : StaticData.userModel!
-                                                          .profilePic !=
-                                                      null
+                                              : StaticData.userModel != null &&
+                                                      StaticData.userModel!
+                                                              .profilePic !=
+                                                          null
                                                   ? CircleAvatar(
                                                       radius: 75,
                                                       backgroundImage: FileImage(
@@ -119,12 +100,15 @@ class _SignupPageState extends State<SignupPage> {
                                                               .userModel!
                                                               .profilePic!)),
                                                     )
-                                                  : CircleAvatar(
+                                                  : const CircleAvatar(
                                                       radius: 75,
-                                                      backgroundImage:
-                                                          FileImage(File(obj
-                                                              .image
-                                                              .toString())),
+                                                      backgroundColor:
+                                                          ThemeColor
+                                                              .primaryDark,
+                                                      // backgroundImage:
+                                                      //     FileImage(File(obj
+                                                      //         .image
+                                                      //         .toString())),
                                                     ),
                                         ),
                                         Align(
@@ -458,7 +442,9 @@ class _SignupPageState extends State<SignupPage> {
                       width: double.infinity,
                       height: 44,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          obj.register(context);
+                        },
                         style: TextButton.styleFrom(
                           textStyle: const TextStyle(
                               fontSize: 16, fontWeight: FontWeight.w500),

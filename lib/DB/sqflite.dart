@@ -1,5 +1,6 @@
 import 'dart:io';
 // import 'package:doctor_appointment_app/SQL/Sql_query.dart';
+import 'package:quiz_app/models/user_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -54,72 +55,16 @@ class SQLService {
   static Future<void> createTables(Database db) async {
     try {
       await db.execute('''
-        CREATE TABLE IF NOT EXISTS AppointmentModel (
-          id NVARCHAR(255) NOT NULL PRIMARY KEY,
-          patientid NVARCHAR(255) NOT NULL,
-          doctorid NVARCHAR(255) NOT NULL,
-          
-          slotsid NVARCHAR(255) NOT NULL,
-          time NVARCHAR(255) NOT NULL,
-          createdtime BIGINT NOT NULL,
-          status INT NOT NULL,
-          bio TEXT NOT NULL,
-          rating FLOAT NULL
-        );
-      ''');
-      await db.execute('''
-        CREATE TABLE IF NOT EXISTS  VisterUser (
-        id VARCHAR(255)  PRIMARY KEY,
-        patientid VARCHAR(255),
-        doctorid VARCHAR(255));
-      ''');
-
-      await db.execute('''
-  CREATE TABLE IF NOT EXISTS PatientModel (
-    id VARCHAR(255) PRIMARY KEY,
-    fullname VARCHAR(225),
-    phonenumber VARCHAR(100),
-    password VARCHAR(100),
-    email VARCHAR(100) UNIQUE,
-    image NVARCHAR(225)
-  );
-''');
-
-      await db.execute('''
-        CREATE TABLE IF NOT EXISTS DoctorSlot (
-          id NVARCHAR(255) NOT NULL PRIMARY KEY,
-          indexn INT NULL,
-          patientid NVARCHAR(255) NULL,
-          doctorname NVARCHAR(255) NOT NULL,
-          doctorid NVARCHAR(255) NOT NULL,
-          startTime NVARCHAR(50) NOT NULL,
-          endTime NVARCHAR(50) NOT NULL,
-          patientName NVARCHAR(255) NULL,
-          isAvailable BIT NOT NULL,
-          date NVARCHAR(50) NOT NULL
-        );
-      ''');
-
-      await db.execute('''
-        CREATE TABLE IF NOT EXISTS DoctorModel (
-          id NVARCHAR(255) NOT NULL PRIMARY KEY,
-          fullname NVARCHAR(255) NOT NULL,
-          phonenumber NVARCHAR(50) NOT NULL,
-          email NVARCHAR(50) UNIQUE,
-          password NVARCHAR(255) NOT NULL,
-          image NVARCHAR(225) NULL,
-          bio NVARCHAR(225) NOT NULL,
-          specialty NVARCHAR(255) NOT NULL,
-          starttime NVARCHAR(50) NOT NULL,
-          endtime NVARCHAR(50) NOT NULL,
-          about NVARCHAR(225) NOT NULL,
-          address VARCHAR(225) NOT NULL,
-          maxAppointmentDuration INT NOT NULL,
-          totalrating FLOAT NOT NULL,
-          ratingperson INT NOT NULL,
-          fee FLOAT NOT NULL
-        );
-      ''');
+      CREATE TABLE IF NOT EXISTS UserModel (
+        id VARCHAR(255) NOT NULL PRIMARY KEY,
+        firstname VARCHAR(255) NOT NULL,
+        lastname VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        mobile VARCHAR(255) NOT NULL,
+        profilePic VARCHAR(255)
+      );
+    ''');
 
       print("Tables created successfully");
     } catch (e) {
@@ -127,7 +72,6 @@ class SQLService {
       throw Exception("Failed to create tables: $e");
     }
   }
-
 
   static Future<void> randomCreateTable(String query) async {
     try {
@@ -140,19 +84,17 @@ class SQLService {
   }
 
   static Future<List<String>> getAllTables() async {
-  
-      try {
-        List<Map<String, Object?>>? result = await _db
-            ?.rawQuery("SELECT name FROM sqlite_master WHERE type='table';");
-        print("434534$result");
-        List<String> tables =
-            result!.map((row) => row['name'] as String).toList();
-        return tables;
-      } catch (e) {
-        print("Error in getAllTables: $e");
-        return [];
-      }
-  
+    try {
+      List<Map<String, Object?>>? result = await _db
+          ?.rawQuery("SELECT name FROM sqlite_master WHERE type='table';");
+      print("434534$result");
+      List<String> tables =
+          result!.map((row) => row['name'] as String).toList();
+      return tables;
+    } catch (e) {
+      print("Error in getAllTables: $e");
+      return [];
+    }
   }
 
   static Future<List<Map<String, dynamic>>?> get(String query) async {
@@ -176,7 +118,6 @@ class SQLService {
       throw Exception("Failed to execute insert query: $e");
     }
   }
-
 
   static Future<int?> updateData(
       String tableName, Map<String, dynamic> map, String id) async {
