@@ -25,13 +25,7 @@ class _SplashPageState extends State<SplashPage> {
     Get.put(UserController());
     Get.put(LoginController());
     getDataFromSF();
-    Future.delayed(const Duration(seconds: 4), () {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const WelcomePage(),
-          ));
-    });
+
     super.initState();
   }
 
@@ -108,7 +102,6 @@ class _SplashPageState extends State<SplashPage> {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? v = prefs.getString("UserModel");
       print("v:$v");
-      StaticData.userModel!.id = v ?? "";
       if (v != null && v != "") {
         try {
           await fetchpatientByUUID(v, context);

@@ -1,8 +1,12 @@
+import 'dart:io';
+
+import 'package:image_picker/image_picker.dart';
 import 'package:quiz_app/controller/user_controller.dart';
 import 'package:quiz_app/themes/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/themes/staticdata.dart';
+import 'package:quiz_app/widgets/custom.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -15,20 +19,10 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void initState() {
     Get.put(UserController());
+    UserController.to.initalizedata();
     super.initState();
   }
 
-  final firstNameController = TextEditingController();
-  final lastNameController = TextEditingController();
-  final emailController = TextEditingController();
-  final phoneNumberController = TextEditingController();
-  final passwordController = TextEditingController();
-
-  final GlobalKey<FormState> signupFormKey =
-      GlobalKey<FormState>(debugLabel: '__signupFormKey__');
-
-  var isLoading = false;
-  var passwordInVisible = true;
   var height, width;
   @override
   Widget build(BuildContext context) {
@@ -51,7 +45,7 @@ class _ProfilePageState extends State<ProfilePage> {
         return Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 8, right: 8, top: 36),
+              padding: const EdgeInsets.only(left: 8, right: 8, top: 80),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
@@ -63,7 +57,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: Column(
                   children: [
                     Form(
-                        key: signupFormKey,
+                        key: obj.signupFormKey,
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,7 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 height: 8,
                               ),
                               TextFormField(
-                                controller: firstNameController,
+                                controller: obj.firstNameController,
                                 keyboardType: TextInputType.text,
                                 style: const TextStyle(
                                     color: ThemeColor.black, fontSize: 14),
@@ -121,7 +115,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 height: 8,
                               ),
                               TextFormField(
-                                controller: lastNameController,
+                                controller: obj.lastNameController,
                                 keyboardType: TextInputType.text,
                                 style: const TextStyle(
                                     color: ThemeColor.black, fontSize: 14),
@@ -163,7 +157,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 height: 8,
                               ),
                               TextFormField(
-                                controller: emailController,
+                                controller: obj.emailController,
                                 keyboardType: TextInputType.emailAddress,
                                 style: const TextStyle(
                                     color: ThemeColor.black, fontSize: 14),
@@ -205,11 +199,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                 height: 8,
                               ),
                               TextFormField(
-                                controller: phoneNumberController,
+                                controller: obj.phoneNumberController,
                                 keyboardType: TextInputType.phone,
                                 style: const TextStyle(
                                     color: ThemeColor.black, fontSize: 14),
-                                maxLength: 10,
+                                // maxLength: 10,
                                 decoration: InputDecoration(
                                   counterText: '',
                                   prefixIcon: const Icon(
@@ -249,9 +243,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                 height: 8,
                               ),
                               TextFormField(
-                                controller: passwordController,
+                                controller: obj.passwordController,
                                 keyboardType: TextInputType.text,
-                                obscureText: passwordInVisible,
+                                obscureText: obj.passwordInVisible,
                                 style: const TextStyle(
                                     color: ThemeColor.black, fontSize: 14),
                                 enableSuggestions: false,
@@ -263,14 +257,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ),
                                   suffixIcon: IconButton(
                                       icon: Icon(
-                                        passwordInVisible
+                                        obj.passwordInVisible
                                             ? Icons.visibility_off
                                             : Icons.visibility,
                                       ),
                                       onPressed: () {
                                         setState(() {
-                                          passwordInVisible =
-                                              !passwordInVisible;
+                                          obj.passwordInVisible =
+                                              !obj.passwordInVisible;
                                         });
                                       }),
                                   contentPadding: const EdgeInsets.all(12),
@@ -297,7 +291,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                   width: double.infinity,
                                   height: 44,
                                   child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      obj.updateprofile(context);
+                                    },
                                     style: TextButton.styleFrom(
                                       textStyle: const TextStyle(
                                           fontSize: 16,
@@ -320,10 +316,106 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(
-                  radius: 36,
-                  backgroundImage:
-                      AssetImage("${StaticData.userModel!.profilePic}"),
+                SizedBox(
+                  width: width * 0.3,
+                  height: height * 0.15,
+                  child: Center(
+                    child: Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: obj.hpickedFile != null
+                              ? Container(
+                                  height: height * 0.15,
+                                  width: width * 0.3,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                          image: FileImage(
+                                              File(obj.hpickedFile!.path)),
+                                          fit: BoxFit.fill)),
+                                  // radius: 75,
+                                )
+                              : StaticData.userModel != null &&
+                                      StaticData.userModel!.profilePic != null
+                                  ? CircleAvatar(
+                                      radius: 75,
+                                      backgroundImage: FileImage(File(
+                                          StaticData.userModel!.profilePic!)),
+                                    )
+                                  : const CircleAvatar(
+                                      radius: 75,
+                                      backgroundColor: ThemeColor.primaryDark,
+                                      // backgroundImage:
+                                      //     FileImage(File(obj
+                                      //         .image
+                                      //         .toString())),
+                                    ),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: InkWell(
+                            onTap: () {
+                              showModalBottomSheet(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      ListTile(
+                                        title: CustomWidget.largeText(
+                                            "Profile photo"),
+                                      ),
+                                      ListTile(
+                                        leading: CircleAvatar(
+                                          radius: 25,
+                                          backgroundColor: Colors.grey[300],
+                                          child: const Icon(
+                                            Icons.add_a_photo,
+                                            color: ThemeColor.primary,
+                                            size: 20,
+                                          ),
+                                        ),
+                                        title: CustomWidget.smalltext("Camera"),
+                                        onTap: () {
+                                          obj.pickImage(ImageSource.camera);
+
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                      ListTile(
+                                        leading: CircleAvatar(
+                                          radius: 25,
+                                          backgroundColor: Colors.grey.shade300,
+                                          child: const Icon(
+                                            Icons.photo,
+                                            color: ThemeColor.primary,
+                                            size: 20,
+                                          ),
+                                        ),
+                                        title:
+                                            CustomWidget.smalltext("Gallery"),
+                                        onTap: () {
+                                          obj.pickImage(ImageSource.gallery);
+
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            child: CircleAvatar(
+                              radius: 20,
+                              backgroundColor: Colors.white.withOpacity(.9),
+                              child: const Icon(Icons.edit),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),

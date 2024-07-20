@@ -90,6 +90,7 @@ class LoginController extends GetxController {
         SharedPreferences prefs = await SharedPreferences.getInstance();
         StaticData.cleardata(context).then((value) {
           prefs.setString("UserModel", model!.id);
+          print("dafnf  store data");
           clearForm1();
         });
       });

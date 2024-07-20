@@ -1,7 +1,9 @@
 import 'package:quiz_app/models/flutter_topics_model.dart';
 import 'package:quiz_app/themes/staticdata.dart';
+import 'package:quiz_app/views/about.dart';
 import 'package:quiz_app/views/pofile/pofile_page.dart';
 import 'package:quiz_app/views/quiz_pages/level.dart';
+import 'package:quiz_app/views/terms_condition.dart';
 import 'package:quiz_app/widgets/drawer_header.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -191,30 +193,14 @@ Drawer navigationDrawer(context) {
       child: Column(
         children: [
           drawerHeader(context),
-          // listTileMyQuiz(context),
           listTileprofile(context),
           listTileAbout(context),
           listTileTerms(context),
           listTileShare(context),
+          listTileLogOut(context),
         ],
       ),
     ),
-  );
-}
-
-ListTile listTileMyQuiz(context) {
-  return ListTile(
-    contentPadding: const EdgeInsets.only(left: 20),
-    leading:
-        const Icon(FontAwesomeIcons.receipt, size: 20, color: Colors.black),
-    title: Text(
-      "My Quiz",
-      style: TextStyle(
-        fontSize: setSize(context, 18),
-        fontWeight: FontWeight.w400,
-      ),
-    ),
-    onTap: () {},
   );
 }
 
@@ -231,8 +217,8 @@ ListTile listTileAbout(context) {
     ),
     onTap: () {
       Navigator.pop(context);
-      // Navigator.push(
-      //     context, MaterialPageRoute(builder: (context) => const AboutPage()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const AboutPage()));
     },
   );
 }
@@ -270,9 +256,14 @@ listTileTerms(context) {
       style: TextStyle(
           fontSize: setSize(context, 17), fontWeight: FontWeight.w400),
     ),
-    onTap: () async {
-      // await launchUrlString(termsConditionsURL,
-      //     webOnlyWindowName: "Terms And Conditions");
+    onTap: () {
+      Navigator.pop(context);
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const TermsAndConditionsPage(),
+          ));
+
       Navigator.pop(context);
     },
   );
@@ -292,6 +283,22 @@ ListTile listTileShare(context) {
       // await launchUrlString(appLink,
       // webOnlyWindowName: "App Share");
       Navigator.pop(context);
+    },
+  );
+}
+
+ListTile listTileLogOut(context) {
+  return ListTile(
+    contentPadding: const EdgeInsets.only(top: 15, left: 20),
+    leading: const Icon(Icons.login_outlined, size: 20, color: Colors.black),
+    title: Text(
+      "LogOut",
+      style: TextStyle(
+          fontSize: setSize(context, 18), fontWeight: FontWeight.w400),
+    ),
+    onTap: () async {
+      Navigator.pop(context);
+      StaticData.cleardata(context);
     },
   );
 }

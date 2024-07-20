@@ -21,7 +21,7 @@ userEmail(context) {
   return Container(
       alignment: Alignment.center,
       child: Text(
-        "abc@gmail.com",
+        StaticData.userModel!.email,
         style: TextStyle(
             fontSize: setSize(context, 17),
             fontWeight: FontWeight.w500,
@@ -49,16 +49,18 @@ userName(context) {
 const String appLogo = "assets/logo.png";
 userImage() {
   return Container(
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.white,
-          border: Border.all(color: Colors.black, width: 1.7)),
-      margin: const EdgeInsets.only(top: 40, bottom: 10),
-      child: Image.file(
+    decoration: const BoxDecoration(
+      shape: BoxShape.circle,
+      color: Colors.white,
+    ),
+    margin: const EdgeInsets.only(top: 40, bottom: 10),
+    child: CircleAvatar(
+      radius: 60,
+      backgroundImage: FileImage(
         File(StaticData.userModel!.profilePic!),
-        height: 130,
-        width: 150,
-      ));
+      ),
+    ),
+  );
 }
 
 class ResponsiveWidget extends StatelessWidget {

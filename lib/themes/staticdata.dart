@@ -1,9 +1,14 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:quiz_app/DB/database_querys.dart';
 import 'package:quiz_app/models/user_model.dart';
+import 'package:quiz_app/views/login_signup/wellcome.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class StaticData {
@@ -29,5 +34,44 @@ class StaticData {
     SharedPreferences a = await SharedPreferences.getInstance();
     a.getKeys();
     a.clear();
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const WelcomePage(),
+      ),
+      (route) => false,
+    );
   }
+    static Future<void> updatepatientprofile() async {
+    try {
+      var query = "SELECT * FROM UserModel where id='${userModel!.id}'";
+      await SQLQuery.getdata(query).then((value) async {
+        print("snaaaaaap    $value");
+
+        print("get data");
+        try {
+          var model1 = UserModel.fromMap(value[0]);
+          
+        
+     
+          userModel = model1;
+          
+        } catch (e) {
+          return;
+        }
+      });
+    } catch (e) {
+      print("errrrrrrror    $e");
+      Fluttertoast.showToast(
+        msg: "${e.toString()} !",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        gravity: ToastGravity.BOTTOM,
+        fontSize: 17,
+        timeInSecForIosWeb: 1,
+        toastLength: Toast.LENGTH_LONG,
+      );
+    }
+  }
+
 }

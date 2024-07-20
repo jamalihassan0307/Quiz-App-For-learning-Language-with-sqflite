@@ -3,19 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/DB/sqflite.dart';
+import 'package:quiz_app/themes/color.dart';
 import 'package:quiz_app/views/login_signup/splash.dart';
 
-Future<void> main() async {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: ThemeColor.primary,
+      statusBarBrightness: Brightness.dark));
+  // SystemChrome.setPreferredOrientations(
+  //   [
+  //     DeviceOrientation.portraitUp,
+  //     DeviceOrientation.portraitDown,
+  //   ],
+  // );
+  print("Initializing local database...");
+  await SQLService.openDB();
+
   runApp(
     const MyApp(),
   );
-  SystemChrome.setPreferredOrientations(
-    [
-      DeviceOrientation.portraitUp,
-      DeviceOrientation.portraitDown,
-    ],
-  );
-  await SQLService.openDB();
 }
 
 class MyApp extends StatelessWidget {
