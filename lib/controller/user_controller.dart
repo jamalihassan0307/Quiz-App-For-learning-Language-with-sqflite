@@ -7,7 +7,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:quiz_app/DB/sqflite.dart';
 import 'package:quiz_app/themes/staticdata.dart';
 import 'package:quiz_app/views/home_screen.dart';
-import 'package:quiz_app/views/login_signup/wellcome.dart';
 
 class UserController extends GetxController {
   static UserController get to => Get.find();

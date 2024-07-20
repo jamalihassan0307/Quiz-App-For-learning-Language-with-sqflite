@@ -1,6 +1,5 @@
 import 'dart:io';
 // import 'package:doctor_appointment_app/SQL/Sql_query.dart';
-import 'package:quiz_app/models/user_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 

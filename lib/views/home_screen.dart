@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:quiz_app/models/flutter_topics_model.dart';
+import 'package:quiz_app/themes/color.dart';
 import 'package:quiz_app/themes/staticdata.dart';
 import 'package:quiz_app/views/about.dart';
 import 'package:quiz_app/views/pofile/pofile_page.dart';
@@ -17,8 +20,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  var height, width;
   @override
   Widget build(BuildContext context) {
+    height = MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
+
     String name =
         '${StaticData.userModel!.firstname} ${StaticData.userModel!.lastname}';
     // final translator = GoogleTranslator();
@@ -45,6 +52,26 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
+        actions: [
+          Align(
+            alignment: Alignment.center,
+            child: StaticData.userModel!.profilePic != null
+                ? CircleAvatar(
+                    radius: 25,
+                    backgroundImage:
+                        FileImage(File(StaticData.userModel!.profilePic!)),
+                  )
+                : const CircleAvatar(
+                    radius: 25,
+                    backgroundColor: ThemeColor.primaryDark,
+                    // backgroundImage:
+                    //     FileImage(File(obj
+                    //         .image
+                    //         .toString())),
+                  ),
+          ),
+          SizedBox(width: width * 0.02),
+        ],
         backgroundColor: const Color(0xFF5170FD),
       ),
       backgroundColor: bgColor3,
@@ -149,10 +176,24 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Icon(
-                            topicsData.topicIcon,
-                            color: Colors.white,
-                            size: 55,
+                          SizedBox(
+                            height: height * 0.15,
+                            child: Image.asset(
+                              topicsData.topicName == "English"
+                                  ? "assets/english.png"
+                                  : topicsData.topicName == "Urdu"
+                                      ? "assets/urdu.png"
+                                      : topicsData.topicName == "Bengali"
+                                          ? "assets/bengali.png"
+                                          : topicsData.topicName == "German"
+                                              ? "assets/german.png"
+                                              : topicsData.topicName == "Hindi"
+                                                  ? "assets/hindi.png"
+                                                  : topicsData.topicName ==
+                                                          "sindhi"
+                                                      ? "assets/sind.png"
+                                                      : "assets/punjabi.png",
+                            ),
                           ),
                           const SizedBox(
                             height: 15,
@@ -263,8 +304,6 @@ listTileTerms(context) {
           MaterialPageRoute(
             builder: (context) => const TermsAndConditionsPage(),
           ));
-
-      Navigator.pop(context);
     },
   );
 }
