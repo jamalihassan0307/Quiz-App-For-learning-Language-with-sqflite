@@ -57,13 +57,15 @@ class _SplashPageState extends State<SplashPage> {
           }
         } catch (e) {
           print('Document with UUID $uuid does not exist.$e');
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const WelcomePage(),
-            ),
-            (route) => true,
-          );
+          Future.delayed(Duration(seconds: 2), () {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const WelcomePage(),
+              ),
+              (route) => true,
+            );
+          });
 
           return;
         }
@@ -85,14 +87,15 @@ class _SplashPageState extends State<SplashPage> {
     } catch (e) {
       print('Document with UUID $uuid does not exist.');
 
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const WelcomePage(),
-        ),
-        (route) => true,
-      );
-
+      Future.delayed(Duration(seconds: 2), () {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const WelcomePage(),
+          ),
+          (route) => true,
+        );
+      });
       print('Error fetching user data: $e');
     }
   }
@@ -110,6 +113,19 @@ class _SplashPageState extends State<SplashPage> {
           print("error");
         }
       } else {
+        Future.delayed(Duration(seconds: 2), () {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const WelcomePage(),
+            ),
+            (route) => true,
+          );
+        });
+        return false;
+      }
+    } catch (e) {
+      Future.delayed(Duration(seconds: 2), () {
         Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
@@ -117,16 +133,7 @@ class _SplashPageState extends State<SplashPage> {
           ),
           (route) => true,
         );
-        return false;
-      }
-    } catch (e) {
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const WelcomePage(),
-        ),
-        (route) => true,
-      );
+      });
       return false;
     }
 
