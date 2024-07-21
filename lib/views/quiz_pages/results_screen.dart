@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use, avoid_print
 
+import 'package:quiz_app/DB/database_querys.dart';
 import 'package:quiz_app/models/result_model.dart';
 import 'package:quiz_app/themes/staticdata.dart';
 import 'package:quiz_app/views/home_screen.dart';
@@ -23,6 +24,15 @@ class ResultsScreen extends StatefulWidget {
 
 class _ResultsScreenState extends State<ResultsScreen> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  savethedata(model) {
+    StaticData.addResultData(model, context);
+  }
+
+  @override
   Widget build(BuildContext context) {
     const Color bgColor3 = Color(0xFF5170FD);
     print(widget.score);
@@ -31,19 +41,20 @@ class _ResultsScreenState extends State<ResultsScreen> {
     final int roundedPercentageScore = percentageScore.round();
     const Color cardColor = Color(0xFF4993FA);
     String id = const Uuid().v4();
-
+    String time = StaticData.formatDateTime(DateTime.now());
     ResultModel model = ResultModel(
+        time: time,
         id: id,
         result: roundedPercentageScore >= 75 ? "Win" : "Lose",
-        awaid: roundedPercentageScore >= 75
+        award: roundedPercentageScore >= 75
             ? "You have Earned this Trophy"
             : "I know You can do better!!",
-        persetage: "$roundedPercentageScore %",
+        percentage: "$roundedPercentageScore %",
         language: widget.whichTopic.toUpperCase(),
         image: roundedPercentageScore >= 75
             ? "assets/bouncy-cup.gif"
             : "assets/sad.png");
-    StaticData.addResultData(model, context);
+
     return WillPopScope(
       onWillPop: () {
         Navigator.pushAndRemoveUntil(
@@ -119,6 +130,26 @@ class _ResultsScreenState extends State<ResultsScreen> {
                   bgColor3: bgColor3),
               const SizedBox(
                 height: 25,
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(cardColor),
+                  fixedSize: MaterialStateProperty.all(
+                    Size(MediaQuery.sizeOf(context).width * 0.80, 40),
+                  ),
+                  elevation: MaterialStateProperty.all(4),
+                ),
+                onPressed: () {
+                  savethedata(model);
+                },
+                child: const Text(
+                  "Save",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
               ElevatedButton(
                 style: ButtonStyle(

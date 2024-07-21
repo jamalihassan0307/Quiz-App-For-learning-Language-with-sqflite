@@ -2,6 +2,8 @@
 
 import 'dart:io';
 // import 'package:doctor_appointment_app/SQL/Sql_query.dart';
+import 'package:quiz_app/DB/database_querys.dart';
+import 'package:quiz_app/models/result_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -66,12 +68,13 @@ class SQLService {
         profilePic VARCHAR(255)
       );
     ''');
+
       await db.execute('''
       CREATE TABLE IF NOT EXISTS ResultModel (
         id VARCHAR(255) NOT NULL PRIMARY KEY,
         result VARCHAR(255) NOT NULL,
-        awaid VARCHAR(255) NOT NULL,
-        persetage VARCHAR(255) NOT NULL,
+        award VARCHAR(255) NOT NULL,
+        percentage VARCHAR(255) NOT NULL,
         language VARCHAR(255) NOT NULL,
         image VARCHAR(255) NOT NULL,
       );

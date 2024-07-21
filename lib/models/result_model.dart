@@ -4,36 +4,39 @@ import 'dart:convert';
 class ResultModel {
   String id;
   String result;
-  String awaid;
-  String persetage;
+  String award;
+  String percentage;
   String language;
   String image;
+  String time;
   ResultModel({
     required this.id,
     required this.result,
-    required this.awaid,
-    required this.persetage,
+    required this.award,
+    required this.percentage,
     required this.language,
     required this.image,
+    required this.time,
   });
 
   toMap() {
-    return "'$id','$result','$awaid','$persetage','$language','$image'";
+    return "'$id','$result','$award','$percentage','$language','$image','$time'";
   }
 
   factory ResultModel.fromMap(Map<String, dynamic> map) {
     return ResultModel(
       id: map['id'],
       result: map['result'],
-      awaid: map['awaid'],
-      persetage: map['persetage'],
+      award: map['award'],
+      percentage: map['percentage'],
       language: map['language'],
       image: map['image'],
+      time: map['time'],
     );
   }
 
   @override
   String toString() {
-    return 'ResultModel(id: $id, result: $result, awaid: $awaid, persetage: $persetage, language: $language, image: $image)';
+    return 'ResultModel(id: $id, result: $result, award: $award, percentage: $percentage, language: $language, image: $image, time: $time)';
   }
 }

@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:quiz_app/DB/database_querys.dart';
 import 'package:quiz_app/models/result_model.dart';
@@ -15,7 +16,7 @@ import 'package:uuid/uuid.dart';
 
 class StaticData {
   static UserModel? userModel;
-  static List<ResultModel>? result_model_list;
+  static List<ResultModel> result_model_list = [];
 
   static Future<String> assetToF(String assetPath) async {
     String directory = (await getTemporaryDirectory()).path;
@@ -59,6 +60,40 @@ class StaticData {
 
           userModel = model1;
         } catch (e) {
+          return;
+        }
+      });
+    } catch (e) {
+      print("errrrrrrror    $e");
+      Fluttertoast.showToast(
+        msg: "${e.toString()} !",
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        gravity: ToastGravity.BOTTOM,
+        fontSize: 17,
+        timeInSecForIosWeb: 1,
+        toastLength: Toast.LENGTH_LONG,
+      );
+    }
+  }
+
+  static Future<void> gettheresult() async {
+    try {
+      result_model_list.clear();
+      var query = "SELECT * FROM ResultModel ";
+      await SQLQuery.getdata(query).then((value) async {
+        print("snaaaaaap    $value");
+
+        print("get data");
+        try {
+          List<Map<String, dynamic>> tempResult =
+              value.cast<Map<String, dynamic>>();
+          for (var element in tempResult) {
+            result_model_list.add(ResultModel.fromMap(element));
+          }
+          print(result_model_list.length);
+        } catch (e) {
+          print("EEEEEERRRRROOOOORRR$e");
           return;
         }
       });
@@ -128,5 +163,10 @@ class StaticData {
         fontSize: 16.0,
       );
     }
+  }
+
+  static String formatDateTime(DateTime dateTime) {
+    var formatter = DateFormat('MM/dd/yyyy hh:mm a');
+    return formatter.format(dateTime);
   }
 }

@@ -170,11 +170,14 @@ class _LevelState extends State<Level> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Icon(
-                              keyword.icon,
-                              color: Colors.white,
-                              size: 55,
-                            ),
+                            // Icon(
+                            //   keyword.icon,
+                            //   color: Colors.white,
+                            //   size: 55,
+                            // ),
+                            Image.asset(
+                                cacheHeight: 100,
+                                "assets/${keyword.name.toLowerCase()}.png"),
                             const SizedBox(
                               height: 15,
                             ),

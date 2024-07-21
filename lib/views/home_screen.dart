@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_typing_uninitialized_variables, avoid_print
+// ignore_for_file: prefer_typing_uninitialized_variables, avoid_print, deprecated_member_use
 
 import 'dart:io';
 
@@ -6,9 +6,11 @@ import 'package:quiz_app/models/flutter_topics_model.dart';
 import 'package:quiz_app/themes/color.dart';
 import 'package:quiz_app/themes/staticdata.dart';
 import 'package:quiz_app/views/about.dart';
+import 'package:quiz_app/views/old_result.dart';
 import 'package:quiz_app/views/pofile/pofile_page.dart';
 import 'package:quiz_app/views/quiz_pages/level.dart';
 import 'package:quiz_app/views/terms_condition.dart';
+import 'package:quiz_app/views/tranlater.dart';
 import 'package:quiz_app/widgets/drawer_header.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -141,17 +143,6 @@ class _HomePageState extends State<HomePage> {
                 final topicsData = flutterTopicsList[index];
                 return GestureDetector(
                   onTap: () async {
-                    //       await translator
-                    //   .translate("سیب کا اردو میں کیا مطلب ہے",  to: 'hi')
-                    //   .then((translatedWord) {
-                    //     print("ksksf   ${translatedWord.text}");
-                    // // if (translatedWord.text == _wordController.text) {
-                    // //   messenger.toast(S.of(context).couldntFoundTranslate);
-                    // // } else {
-                    // //   _conceptController.text = translatedWord.text;
-                    // // }
-                    //   });
-
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -233,9 +224,10 @@ Drawer navigationDrawer(context) {
         children: [
           drawerHeader(context),
           listTileprofile(context),
+          listTileResult(context),
+          listTileTranlate(context),
           listTileAbout(context),
           listTileTerms(context),
-          listTileShare(context),
           listTileLogOut(context),
           listTileDelete(context),
         ],
@@ -307,20 +299,43 @@ listTileTerms(context) {
   );
 }
 
-ListTile listTileShare(context) {
+ListTile listTileResult(context) {
   return ListTile(
     contentPadding: const EdgeInsets.only(top: 15, left: 20),
     leading:
-        const Icon(FontAwesomeIcons.shareNodes, size: 20, color: Colors.black),
+        const Icon(FontAwesomeIcons.history, size: 20, color: Colors.black),
     title: Text(
-      "Share",
+      "Old Result",
       style: TextStyle(
           fontSize: setSize(context, 18), fontWeight: FontWeight.w400),
     ),
     onTap: () async {
-      // await launchUrlString(appLink,
-      // webOnlyWindowName: "App Share");
       Navigator.pop(context);
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const OldResultPage(),
+          ));
+    },
+  );
+}
+
+ListTile listTileTranlate(context) {
+  return ListTile(
+    contentPadding: const EdgeInsets.only(top: 15, left: 20),
+    leading: const Icon(Icons.translate, size: 20, color: Colors.black),
+    title: Text(
+      "Google Tranlation",
+      style: TextStyle(
+          fontSize: setSize(context, 18), fontWeight: FontWeight.w400),
+    ),
+    onTap: () {
+      Navigator.pop(context);
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TranslatePage(),
+          ));
     },
   );
 }
