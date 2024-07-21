@@ -353,7 +353,7 @@ class _SignupPageState extends State<SignupPage> {
                               keyboardType: TextInputType.phone,
                               style: const TextStyle(
                                   color: ThemeColor.black, fontSize: 14),
-                              maxLength: 10,
+                              // maxLength: 10,
                               decoration: InputDecoration(
                                 counterText: '',
                                 prefixIcon: const Icon(

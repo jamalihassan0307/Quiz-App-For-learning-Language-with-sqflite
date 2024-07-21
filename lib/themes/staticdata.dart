@@ -10,7 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:quiz_app/DB/database_querys.dart';
 import 'package:quiz_app/models/result_model.dart';
 import 'package:quiz_app/models/user_model.dart';
-import 'package:quiz_app/views/login_signup/wellcome.dart';
+// import 'package:quiz_app/views/login_signup/wellcome.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:uuid/uuid.dart';
 

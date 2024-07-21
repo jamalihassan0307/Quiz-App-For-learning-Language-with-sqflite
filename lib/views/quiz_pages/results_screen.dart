@@ -1,6 +1,6 @@
 // ignore_for_file: deprecated_member_use, avoid_print
 
-import 'package:quiz_app/DB/database_querys.dart';
+// import 'package:quiz_app/DB/database_querys.dart';
 import 'package:quiz_app/models/result_model.dart';
 import 'package:quiz_app/themes/staticdata.dart';
 import 'package:quiz_app/views/home_screen.dart';

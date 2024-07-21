@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             TextFormField(
                               controller: obj.emailController1,
-                              keyboardType: TextInputType.phone,
+                              keyboardType: TextInputType.emailAddress,
                               style: const TextStyle(
                                   color: ThemeColor.black, fontSize: 14),
                               // maxLength: 10,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/DB/database_querys.dart';
+// import 'package:quiz_app/DB/database_querys.dart';
 import 'package:quiz_app/models/result_model.dart';
 import 'package:quiz_app/themes/color.dart';
-import 'package:quiz_app/themes/staticdata.dart'; // Assuming ResultModel is imported correctly
+import 'package:quiz_app/themes/staticdata.dart';
 
 class OldResultPage extends StatefulWidget {
   const OldResultPage({Key? key}) : super(key: key);
@@ -82,7 +82,7 @@ class _OldResultPageState extends State<OldResultPage> {
                 ),
               )
             : ListView.builder(
-                itemCount: StaticData.result_model_list.length ?? 0,
+                itemCount: StaticData.result_model_list.length,
                 itemBuilder: (context, index) {
                   ResultModel result = StaticData.result_model_list[index];
                   print(
