@@ -33,6 +33,12 @@ class _TranslatePageState extends State<TranslatePage> {
     'pt': 'Portuguese',
     'ru': 'Russian',
     'ur': 'Urdu',
+    'ar': 'Arabic',
+    'zh': 'Chinese',
+    'hi': 'Hindi',
+    'ps': 'Pashto',
+    'fa': 'Persian',
+    'pa': 'Punjabi',
   };
 
   @override
@@ -157,12 +163,12 @@ class _TranslatePageState extends State<TranslatePage> {
                     },
                     child: const Text('Translate'),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      swapLanguages();
-                    },
-                    child: const Text('Swap Languages'),
-                  ),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     swapLanguages();
+                  //   },
+                  //   child: const Text('Swap Languages'),
+                  // ),
                 ],
               ),
             ],
@@ -242,11 +248,11 @@ class _TranslatePageState extends State<TranslatePage> {
     }
   }
 
-  void swapLanguages() {
-    setState(() {
-      String temp = inputLanguage;
-      inputLanguage = outputLanguage;
-      outputLanguage = temp;
-    });
-  }
+  // void swapLanguages() {
+  //   setState(() {
+  //     String temp = inputLanguage;
+  //     inputLanguage = outputLanguage;
+  //     outputLanguage = temp;
+  //   });
+  // }
 }

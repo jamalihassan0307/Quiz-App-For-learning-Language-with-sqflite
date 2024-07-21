@@ -130,6 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                                     onPressed: () {
                                       obj.passwordInVisible1 =
                                           !obj.passwordInVisible1;
+                                      obj.update();
                                     }),
                                 contentPadding: const EdgeInsets.all(12),
                                 floatingLabelBehavior:

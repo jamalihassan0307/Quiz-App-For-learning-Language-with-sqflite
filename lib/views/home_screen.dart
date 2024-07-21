@@ -6,6 +6,7 @@ import 'package:quiz_app/models/flutter_topics_model.dart';
 import 'package:quiz_app/themes/color.dart';
 import 'package:quiz_app/themes/staticdata.dart';
 import 'package:quiz_app/views/about.dart';
+import 'package:quiz_app/views/login_signup/wellcome.dart';
 import 'package:quiz_app/views/old_result.dart';
 import 'package:quiz_app/views/pofile/pofile_page.dart';
 import 'package:quiz_app/views/quiz_pages/level.dart';
@@ -352,6 +353,13 @@ ListTile listTileLogOut(context) {
     onTap: () async {
       Navigator.pop(context);
       StaticData.cleardata(context);
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const WelcomePage(),
+        ),
+        (route) => false,
+      );
     },
   );
 }
@@ -368,6 +376,13 @@ ListTile listTileDelete(context) {
     onTap: () async {
       Navigator.pop(context);
       StaticData.cleardata(context);
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const WelcomePage(),
+        ),
+        (route) => false,
+      );
     },
   );
 }

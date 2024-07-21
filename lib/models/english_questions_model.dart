@@ -2,7 +2,7 @@ import 'package:quiz_app/models/bengali_questions_model.dart';
 
 final englishQuestionsList = [
   Question(
-    text: "What is the past tense of 'go'?",
+    text: "گذشتہ فعل 'go' کیا ہے؟",
     options: [
       const Option(text: "goed", isCorrect: false),
       const Option(text: "went", isCorrect: true),
@@ -13,7 +13,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "went", isCorrect: true),
   ),
   Question(
-    text: "What is the synonym of 'happy'?",
+    text: "'happy' کا مترادف کیا ہے؟",
     options: [
       const Option(text: "sad", isCorrect: false),
       const Option(text: "angry", isCorrect: false),
@@ -24,7 +24,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "joyful", isCorrect: true),
   ),
   Question(
-    text: "What is the antonym of 'big'?",
+    text: "'big' کا متضاد کیا ہے؟",
     options: [
       const Option(text: "large", isCorrect: false),
       const Option(text: "huge", isCorrect: false),
@@ -35,7 +35,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "small", isCorrect: true),
   ),
   Question(
-    text: "What is the plural form of 'child'?",
+    text: "'child' کی جمع کیا ہے؟",
     options: [
       const Option(text: "childs", isCorrect: false),
       const Option(text: "children", isCorrect: true),
@@ -46,7 +46,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "children", isCorrect: true),
   ),
   Question(
-    text: "What is the correct spelling?",
+    text: "صحیح ہجے کون سے ہیں؟",
     options: [
       const Option(text: "recieve", isCorrect: false),
       const Option(text: "receive", isCorrect: true),
@@ -57,7 +57,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "receive", isCorrect: true),
   ),
   Question(
-    text: "Which word is a noun?",
+    text: "کون سا لفظ اسم ہے؟",
     options: [
       const Option(text: "quickly", isCorrect: false),
       const Option(text: "beautiful", isCorrect: false),
@@ -68,7 +68,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "happiness", isCorrect: true),
   ),
   Question(
-    text: "What is the superlative form of 'good'?",
+    text: "'good' کا انتہائی درجہ کیا ہے؟",
     options: [
       const Option(text: "gooder", isCorrect: false),
       const Option(text: "best", isCorrect: true),
@@ -79,7 +79,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "best", isCorrect: true),
   ),
   Question(
-    text: "What is the past participle of 'sing'?",
+    text: "'sing' کا ماضی کی شکل کیا ہے؟",
     options: [
       const Option(text: "singed", isCorrect: false),
       const Option(text: "sang", isCorrect: false),
@@ -90,7 +90,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "sung", isCorrect: true),
   ),
   Question(
-    text: "Which is a proper noun?",
+    text: "کون سا لفظ اسم خاص ہے؟",
     options: [
       const Option(text: "city", isCorrect: false),
       const Option(text: "country", isCorrect: false),
@@ -101,7 +101,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "Paris", isCorrect: true),
   ),
   Question(
-    text: "Which word is an adjective?",
+    text: "کون سا لفظ صفت ہے؟",
     options: [
       const Option(text: "run", isCorrect: false),
       const Option(text: "quick", isCorrect: true),
@@ -112,8 +112,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "quick", isCorrect: true),
   ),
   Question(
-    text:
-        "What is the correct form of 'to be' in the sentence 'He ___ my friend'?",
+    text: "جملے میں 'to be' کی صحیح شکل کیا ہے 'He ___ my friend'؟",
     options: [
       const Option(text: "are", isCorrect: false),
       const Option(text: "am", isCorrect: false),
@@ -124,7 +123,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "is", isCorrect: true),
   ),
   Question(
-    text: "What is the opposite of 'fast'?",
+    text: "'fast' کا متضاد کیا ہے؟",
     options: [
       const Option(text: "quick", isCorrect: false),
       const Option(text: "slow", isCorrect: true),
@@ -135,7 +134,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "slow", isCorrect: true),
   ),
   Question(
-    text: "What is the synonym of 'difficult'?",
+    text: "'difficult' کا مترادف کیا ہے؟",
     options: [
       const Option(text: "easy", isCorrect: false),
       const Option(text: "simple", isCorrect: false),
@@ -146,7 +145,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "hard", isCorrect: true),
   ),
   Question(
-    text: "What is the plural form of 'mouse'?",
+    text: "'mouse' کی جمع کیا ہے؟",
     options: [
       const Option(text: "mouses", isCorrect: false),
       const Option(text: "mouse", isCorrect: false),
@@ -157,7 +156,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "mice", isCorrect: true),
   ),
   Question(
-    text: "What is the past tense of 'see'?",
+    text: "'see' کا ماضی کی شکل کیا ہے؟",
     options: [
       const Option(text: "seen", isCorrect: false),
       const Option(text: "saw", isCorrect: true),
@@ -168,7 +167,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "saw", isCorrect: true),
   ),
   Question(
-    text: "What is the antonym of 'hot'?",
+    text: "'hot' کا متضاد کیا ہے؟",
     options: [
       const Option(text: "warm", isCorrect: false),
       const Option(text: "cold", isCorrect: true),
@@ -179,7 +178,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "cold", isCorrect: true),
   ),
   Question(
-    text: "Which word is an adverb?",
+    text: "کون سا لفظ ظرف ہے؟",
     options: [
       const Option(text: "run", isCorrect: false),
       const Option(text: "quickly", isCorrect: true),
@@ -190,7 +189,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "quickly", isCorrect: true),
   ),
   Question(
-    text: "What is the comparative form of 'good'?",
+    text: "'good' کا تقابلی درجہ کیا ہے؟",
     options: [
       const Option(text: "gooder", isCorrect: false),
       const Option(text: "best", isCorrect: false),
@@ -201,7 +200,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "better", isCorrect: true),
   ),
   Question(
-    text: "What is the synonym of 'angry'?",
+    text: "'angry' کا مترادف کیا ہے؟",
     options: [
       const Option(text: "calm", isCorrect: false),
       const Option(text: "furious", isCorrect: true),
@@ -212,7 +211,7 @@ final englishQuestionsList = [
     correctAnswer: const Option(text: "furious", isCorrect: true),
   ),
   Question(
-    text: "What is the past participle of 'eat'?",
+    text: "'eat' کا ماضی کا جزو کیا ہے؟",
     options: [
       const Option(text: "eated", isCorrect: false),
       const Option(text: "ate", isCorrect: false),

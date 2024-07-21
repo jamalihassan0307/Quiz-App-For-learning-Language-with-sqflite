@@ -2,7 +2,7 @@ import 'package:quiz_app/models/bengali_questions_model.dart';
 
 final hindiQuestionsList = [
   Question(
-    text: "सेब का हिंदी में क्या मतलब है?",
+    text: "What is the Hindi word for 'apple'?",
     options: [
       const Option(text: "सेब", isCorrect: true),
       const Option(text: "केला", isCorrect: false),
@@ -13,7 +13,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "सेब", isCorrect: true),
   ),
   Question(
-    text: "गुड मॉर्निंग का हिंदी में क्या मतलब है?",
+    text: "How do you say 'Good morning' in Hindi?",
     options: [
       const Option(text: "गुड नाइट", isCorrect: false),
       const Option(text: "गुड मॉर्निंग", isCorrect: true),
@@ -24,7 +24,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "गुड मॉर्निंग", isCorrect: true),
   ),
   Question(
-    text: "धन्यवाद का हिंदी में क्या मतलब है?",
+    text: "What is the Hindi word for 'thank you'?",
     options: [
       const Option(text: "कृपया", isCorrect: false),
       const Option(text: "मुझे माफ करें", isCorrect: false),
@@ -35,7 +35,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "धन्यवाद", isCorrect: true),
   ),
   Question(
-    text: "पुस्तक का हिंदी में क्या मतलब है?",
+    text: "How do you say 'book' in Hindi?",
     options: [
       const Option(text: "कुर्सी", isCorrect: false),
       const Option(text: "पुस्तक", isCorrect: true),
@@ -46,7 +46,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "पुस्तक", isCorrect: true),
   ),
   Question(
-    text: "आप कैसे हैं का हिंदी में क्या मतलब है?",
+    text: "What is the Hindi translation for 'How are you?'?",
     options: [
       const Option(text: "आप कैसे हैं?", isCorrect: true),
       const Option(text: "आप क्या कर रहे हैं?", isCorrect: false),
@@ -57,7 +57,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "आप कैसे हैं?", isCorrect: true),
   ),
   Question(
-    text: "अलविदा का हिंदी में क्या मतलब है?",
+    text: "How do you say 'goodbye' in Hindi?",
     options: [
       const Option(text: "नमस्ते", isCorrect: false),
       const Option(text: "गुड इवनिंग", isCorrect: false),
@@ -68,7 +68,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "अलविदा", isCorrect: true),
   ),
   Question(
-    text: "गर्म का विपरीत क्या है?",
+    text: "What is the opposite of 'hot' in Hindi?",
     options: [
       const Option(text: "ठंडा", isCorrect: true),
       const Option(text: "गर्म", isCorrect: false),
@@ -79,7 +79,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "ठंडा", isCorrect: true),
   ),
   Question(
-    text: "बच्चे का बहुवचन क्या है?",
+    text: "What is the plural form of 'child' in Hindi?",
     options: [
       const Option(text: "बच्चे", isCorrect: true),
       const Option(text: "बच्चों", isCorrect: false),
@@ -90,7 +90,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "बच्चे", isCorrect: true),
   ),
   Question(
-    text: "स्कूल का हिंदी में क्या मतलब है?",
+    text: "What is the Hindi word for 'school'?",
     options: [
       const Option(text: "स्कूल", isCorrect: true),
       const Option(text: "घर", isCorrect: false),
@@ -101,7 +101,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "स्कूल", isCorrect: true),
   ),
   Question(
-    text: "कृपया का हिंदी में क्या मतलब है?",
+    text: "How do you say 'please' in Hindi?",
     options: [
       const Option(text: "धन्यवाद", isCorrect: false),
       const Option(text: "मुझे माफ करें", isCorrect: false),
@@ -112,7 +112,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "कृपया", isCorrect: true),
   ),
   Question(
-    text: "पानी का हिंदी में क्या मतलब है?",
+    text: "What is the Hindi word for 'water'?",
     options: [
       const Option(text: "आग", isCorrect: false),
       const Option(text: "हवा", isCorrect: false),
@@ -123,7 +123,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "पानी", isCorrect: true),
   ),
   Question(
-    text: "मुझे आपसे प्यार है का हिंदी में क्या मतलब है?",
+    text: "How do you say 'I love you' in Hindi?",
     options: [
       const Option(text: "मुझे आपसे नफरत है", isCorrect: false),
       const Option(text: "मुझे आप पसंद हैं", isCorrect: false),
@@ -134,7 +134,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "मुझे आपसे प्यार है", isCorrect: true),
   ),
   Question(
-    text: "दोस्त का हिंदी में क्या मतलब है?",
+    text: "What is the Hindi word for 'friend'?",
     options: [
       const Option(text: "दुश्मन", isCorrect: false),
       const Option(text: "दोस्त", isCorrect: true),
@@ -145,7 +145,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "दोस्त", isCorrect: true),
   ),
   Question(
-    text: "पुराना का विपरीत क्या है?",
+    text: "What is the opposite of 'old' in Hindi?",
     options: [
       const Option(text: "नया", isCorrect: true),
       const Option(text: "बड़ा", isCorrect: false),
@@ -156,7 +156,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "नया", isCorrect: true),
   ),
   Question(
-    text: "परिवार का हिंदी में क्या मतलब है?",
+    text: "What is the Hindi word for 'family'?",
     options: [
       const Option(text: "दोस्त", isCorrect: false),
       const Option(text: "परिवार", isCorrect: true),
@@ -167,7 +167,7 @@ final hindiQuestionsList = [
     correctAnswer: const Option(text: "परिवार", isCorrect: true),
   ),
   Question(
-    text: "गुड नाइट का हिंदी में क्या मतलब है?",
+    text: "How do you say 'Good night' in Hindi?",
     options: [
       const Option(text: "गुड मॉर्निंग", isCorrect: false),
       const Option(text: "गुड नाइट", isCorrect: true),
@@ -176,5 +176,49 @@ final hindiQuestionsList = [
     ],
     id: 15,
     correctAnswer: const Option(text: "गुड नाइट", isCorrect: true),
+  ),
+  Question(
+    text: "What is the Hindi word for 'library'?",
+    options: [
+      const Option(text: "पुस्तकालय", isCorrect: true),
+      const Option(text: "पुस्तक", isCorrect: false),
+      const Option(text: "किताबघर", isCorrect: false),
+      const Option(text: "पढ़ाई", isCorrect: false),
+    ],
+    id: 16,
+    correctAnswer: const Option(text: "पुस्तकालय", isCorrect: true),
+  ),
+  Question(
+    text: "How do you say 'I don't understand' in Hindi?",
+    options: [
+      const Option(text: "मुझे समझ में नहीं आता", isCorrect: true),
+      const Option(text: "मैं समझता हूँ", isCorrect: false),
+      const Option(text: "मैं नहीं जानता", isCorrect: false),
+      const Option(text: "मुझे यकीन है", isCorrect: false),
+    ],
+    id: 17,
+    correctAnswer: const Option(text: "मुझे समझ में नहीं आता", isCorrect: true),
+  ),
+  Question(
+    text: "What is the Hindi word for 'restaurant'?",
+    options: [
+      const Option(text: "रेस्तरां", isCorrect: true),
+      const Option(text: "होटल", isCorrect: false),
+      const Option(text: "ढाबा", isCorrect: false),
+      const Option(text: "किचन", isCorrect: false),
+    ],
+    id: 18,
+    correctAnswer: const Option(text: "रेस्तरां", isCorrect: true),
+  ),
+  Question(
+    text: "How do you say 'Where is the bathroom?' in Hindi?",
+    options: [
+      const Option(text: "बाथरूम कहाँ है?", isCorrect: true),
+      const Option(text: "यहाँ क्या है?", isCorrect: false),
+      const Option(text: "किचन कहाँ है?", isCorrect: false),
+      const Option(text: "आप कैसे हैं?", isCorrect: false),
+    ],
+    id: 19,
+    correctAnswer: const Option(text: "बाथरूम कहाँ है?", isCorrect: true),
   ),
 ];

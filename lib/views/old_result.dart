@@ -59,93 +59,119 @@ class _OldResultPageState extends State<OldResultPage> {
         color: ThemeColor.lightPrimary,
         height: height,
         width: width,
-        child: ListView.builder(
-          itemCount: StaticData.result_model_list.length ?? 0,
-          itemBuilder: (context, index) {
-            ResultModel result = StaticData.result_model_list[index];
-            print(
-                "aaaaaa ${result.language.replaceAll(" ", "").toLowerCase()} aaaa");
-            var language = result.language.replaceAll(" ", "").toLowerCase();
-            return Card(
-              margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: width * 0.6,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '${result.result} in $language',
-                            style: TextStyle(
-                              fontSize: width * 0.04,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 5),
-                          Text(
-                            'Award: ${result.award}',
-                            style: TextStyle(
-                              fontSize: width * 0.035,
-                            ),
-                          ),
-                          Text(
-                            'Percentage: ${result.percentage}',
-                            style: TextStyle(
-                              fontSize: width * 0.035,
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          Column(
-                            children: [
-                              Image.asset(
-                                language.replaceAll(" ", "").toLowerCase() ==
-                                        "english"
-                                    ? "assets/english.png"
-                                    : language == "urdu"
-                                        ? "assets/urdu.png"
-                                        : language == "bengali"
-                                            ? "assets/bengali.png"
-                                            : language == "german"
-                                                ? "assets/german.png"
-                                                : language == "hindi"
-                                                    ? "assets/hindi.png"
-                                                    : language == "sindhi"
-                                                        ? "assets/sind.png"
-                                                        : "assets/punjabi.png",
-                                width: width * 0.4,
+        child: StaticData.result_model_list.isEmpty
+            ? Center(
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      for (var i = 0; i < "NO Data Present".length; i++) ...[
+                        TextSpan(
+                          text: "NO Data Present"[i],
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .copyWith(
+                                fontSize: 18 + i.toDouble(),
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      width: width * 0.2,
-                      child: Column(
+                        ),
+                      ]
+                    ],
+                  ),
+                ),
+              )
+            : ListView.builder(
+                itemCount: StaticData.result_model_list.length ?? 0,
+                itemBuilder: (context, index) {
+                  ResultModel result = StaticData.result_model_list[index];
+                  print(
+                      "aaaaaa ${result.language.replaceAll(" ", "").toLowerCase()} aaaa");
+                  var language =
+                      result.language.replaceAll(" ", "").toLowerCase();
+                  return Card(
+                    margin: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 20),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Row(
                         children: [
-                          Text(
-                            result.time,
-                            style: TextStyle(
-                              overflow: TextOverflow.visible,
-                              fontSize: width * 0.035,
+                          SizedBox(
+                            width: width * 0.6,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '${result.result} in $language',
+                                  style: TextStyle(
+                                    fontSize: width * 0.04,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  'Award: ${result.award}',
+                                  style: TextStyle(
+                                    fontSize: width * 0.035,
+                                  ),
+                                ),
+                                Text(
+                                  'Percentage: ${result.percentage}',
+                                  style: TextStyle(
+                                    fontSize: width * 0.035,
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Column(
+                                  children: [
+                                    Image.asset(
+                                      language
+                                                  .replaceAll(" ", "")
+                                                  .toLowerCase() ==
+                                              "english"
+                                          ? "assets/english.png"
+                                          : language == "urdu"
+                                              ? "assets/urdu.png"
+                                              : language == "bengali"
+                                                  ? "assets/bengali.png"
+                                                  : language == "german"
+                                                      ? "assets/german.png"
+                                                      : language == "hindi"
+                                                          ? "assets/hindi.png"
+                                                          : language == "sindhi"
+                                                              ? "assets/sind.png"
+                                                              : "assets/punjabi.png",
+                                      width: width * 0.4,
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
-                          Image.asset(
-                            result.image,
+                          SizedBox(
                             width: width * 0.2,
+                            child: Column(
+                              children: [
+                                Text(
+                                  result.time,
+                                  style: TextStyle(
+                                    overflow: TextOverflow.visible,
+                                    fontSize: width * 0.035,
+                                  ),
+                                ),
+                                Image.asset(
+                                  result.image,
+                                  width: width * 0.2,
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  );
+                },
               ),
-            );
-          },
-        ),
       ),
     );
   }
