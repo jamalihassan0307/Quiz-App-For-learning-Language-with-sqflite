@@ -2,6 +2,7 @@
 
 // import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:quiz_app/themes/color.dart';
 // import 'package:get/get.dart';
 // import 'package:http/http.dart' as http;
@@ -180,73 +181,64 @@ class _TranslatePageState extends State<TranslatePage> {
 
   Future<void> translateText() async {
     String text = inputTextController.text.trim();
-    if (text.isEmpty) {
-      setState(() {
-        translatedText = 'Please enter text to translate.';
-      });
-      return;
-    }
-
     try {
-      await translator
-          .translate(text, to: outputLanguage)
-          .then((translatedWord) {
-        print("ksksf   ${translatedWord.text}");
-
-        if (translatedWord.text.isNotEmpty) {
-          outputTextController.text = translatedWord.text;
-        } else {
-          setState(() {
-            translatedText = 'Translation not found in response';
-          });
-        }
-      });
-      // if (translatedWord.text == _wordController.text) {
-      //   messenger.toast(S.of(context).couldntFoundTranslate);
-      // } else {
-      //   _conceptController.text = translatedWord.text;
-      // }
-
-      // final response = await http.post(
-      //   Uri.parse(apiUrl),
-      //   headers: {
-      //     'x-rapidapi-key': apiKey,
-      //     'x-rapidapi-host': 'google-translate113.p.rapidapi.com',
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: jsonEncode({
-      //     "from": inputLanguage,
-      //     "to": outputLanguage,
-      //     "html": text,
-      //   }),
-      // );
-
-      // print('API Response: ${response.body}');
-
-      // if (response.statusCode == 200) {
-      //   Map<String, dynamic> data = jsonDecode(response.body);
-      //   if (data.containsKey('trans')) {
-      //     setState(() {
-      //       translatedText = data['trans'];
-      //       outputTextController.text = translatedText;
-      //     });
-      //   } else {
-      //     setState(() {
-      //       translatedText = 'Translation not found in response';
-      //     });
-      //   }
-      // } else {
-      //   setState(() {
-      //     translatedText =
-      //         'Failed to translate text. Status Code: ${response.statusCode}';
-      //   });
-      // }
-    } catch (e) {
+      final translator = GoogleTranslator();
+      var translatedWord = await translator.translate(text, to: outputLanguage);
+      print("Translated text: ${translatedWord.text}");
+      if (translatedWord.text.isNotEmpty) {
+        outputTextController.text = translatedWord.text;
+      } else {
+        setState(() {
+          translatedText = 'Translation not found in response';
+        });
+      }
+    } catch (error) {
+      print("Error: $error");
       setState(() {
-        translatedText = 'Failed to translate text: $e';
+        translatedText = 'Failed to translate text: $error';
       });
     }
   }
+  // if (translatedWord.text == _wordController.text) {
+  //   messenger.toast(S.of(context).couldntFoundTranslate);
+  // } else {
+  //   _conceptController.text = translatedWord.text;
+  // }
+
+  // final response = await http.post(
+  //   Uri.parse(apiUrl),
+  //   headers: {
+  //     'x-rapidapi-key': apiKey,
+  //     'x-rapidapi-host': 'google-translate113.p.rapidapi.com',
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: jsonEncode({
+  //     "from": inputLanguage,
+  //     "to": outputLanguage,
+  //     "html": text,
+  //   }),
+  // );
+
+  // print('API Response: ${response.body}');
+
+  // if (response.statusCode == 200) {
+  //   Map<String, dynamic> data = jsonDecode(response.body);
+  //   if (data.containsKey('trans')) {
+  //     setState(() {
+  //       translatedText = data['trans'];
+  //       outputTextController.text = translatedText;
+  //     });
+  //   } else {
+  //     setState(() {
+  //       translatedText = 'Translation not found in response';
+  //     });
+  //   }
+  // } else {
+  //   setState(() {
+  //     translatedText =
+  //         'Failed to translate text. Status Code: ${response.statusCode}';
+  //   });
+  // }
 
   // void swapLanguages() {
   //   setState(() {

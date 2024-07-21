@@ -168,7 +168,7 @@ class _SplashPageState extends State<SplashPage> {
                       height: 24,
                     ),
                     const Text(
-                      "Quiz App",
+                      "Lang Quize",
                       style: TextStyle(
                           fontSize: 32,
                           color: ThemeColor.white,
