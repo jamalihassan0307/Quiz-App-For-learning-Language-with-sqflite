@@ -51,7 +51,7 @@ class _LevelState extends State<Level> {
                 for (var i = 0; i < widget.topicName.length; i++) ...[
                   TextSpan(
                     text: widget.topicName[i],
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                    style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                           fontSize: 30 + i.toDouble(),
                           color: Colors.white,
                           fontWeight: FontWeight.w400,
@@ -110,7 +110,7 @@ class _LevelState extends State<Level> {
                     children: [
                       TextSpan(
                         text: "${widget.topicName} ",
-                        style: Theme.of(context).textTheme.headline6!.copyWith(
+                        style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                               fontSize: 21,
                               color: Colors.white,
                               fontWeight: FontWeight.w400,
@@ -119,12 +119,14 @@ class _LevelState extends State<Level> {
                       for (var i = 0; i < "Learning!!!".length; i++) ...[
                         TextSpan(
                           text: "Learning!!!"[i],
-                          style:
-                              Theme.of(context).textTheme.headline6!.copyWith(
-                                    fontSize: 21 + i.toDouble(),
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w400,
-                                  ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineLarge!
+                              .copyWith(
+                                fontSize: 21 + i.toDouble(),
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400,
+                              ),
                         ),
                       ]
                     ],
@@ -186,7 +188,7 @@ class _LevelState extends State<Level> {
                               textAlign: TextAlign.center,
                               style: Theme.of(context)
                                   .textTheme
-                                  .subtitle1!
+                                  .headlineLarge!
                                   .copyWith(
                                     fontSize: 18,
                                     color: Colors.white,
